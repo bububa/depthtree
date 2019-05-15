@@ -1,0 +1,19 @@
+AppName = "depthtreed"
+
+BaseUrl = "http://localhost"
+Port = 8011
+
+Template = "/Users/syd/depthtree/templates"
+StaticPath = "/Users/syd/depthtree/static"
+DBPath = "/Users/syd/depthtree/db"
+LogPath = "/Users/syd/depthtree/log"
+
+[MySQL]
+Host = "localhost:3306"
+User = "root"
+Passwd = "xxx"
+DB = "depthtreed"
+
+[Redis]
+Master = "localhost:6379"
+Slave = "localhost:6379"

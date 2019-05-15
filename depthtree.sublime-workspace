@@ -1,0 +1,507 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+			[
+				"selec",
+				"selectedLocation"
+			],
+			[
+				"play",
+				"playing"
+			],
+			[
+				"backg",
+				"background-color"
+			],
+			[
+				"pick",
+				"showPickerView"
+			],
+			[
+				"messageInpu",
+				"messageInputBottom"
+			],
+			[
+				"current",
+				"currentSwiperIndex"
+			],
+			[
+				"bord",
+				"border-radius"
+			],
+			[
+				"link",
+				"colorLink"
+			],
+			[
+				"tap",
+				"tappedSong"
+			],
+			[
+				"auth",
+				"authToken"
+			],
+			[
+				"font",
+				"fontWeightTitle"
+			],
+			[
+				"foundSele",
+				"foundSelectedGroup"
+			],
+			[
+				"openg",
+				"openGidActivityId"
+			],
+			[
+				"seri",
+				"seriesName"
+			],
+			[
+				"tabb",
+				"tabBarSelector"
+			],
+			[
+				"failed",
+				"failedPlays"
+			],
+			[
+				"flex",
+				"flex-direction"
+			],
+			[
+				"back",
+				"background-color"
+			],
+			[
+				"defau",
+				"defaultDuration"
+			],
+			[
+				"nava",
+				"navigateTo"
+			],
+			[
+				"draw",
+				"drawImage"
+			],
+			[
+				"message",
+				"messages-box"
+			],
+			[
+				"like-",
+				"likes-avatar"
+			],
+			[
+				"poi-swiper",
+				"poi-swiper-item"
+			],
+			[
+				"wi",
+				"windowHeight"
+			],
+			[
+				"no",
+				"noMoreData"
+			],
+			[
+				"time",
+				"formatTime"
+			],
+			[
+				"style",
+				"stylesheet"
+			],
+			[
+				"media",
+				"mediaContent"
+			],
+			[
+				"getEl",
+				"getElementById"
+			],
+			[
+				"ba",
+				"background-image\tproperty"
+			],
+			[
+				"text",
+				"text-align\tproperty"
+			]
+		]
+	},
+	"buffers":
+	[
+		{
+			"settings":
+			{
+				"buffer_size": 0,
+				"line_ending": "Unix"
+			}
+		}
+	],
+	"build_system": "",
+	"build_system_choices":
+	[
+	],
+	"build_varint": "",
+	"command_palette":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+			[
+				"pack",
+				"Package Control: Install Package"
+			],
+			[
+				"Package Control: ",
+				"Package Control: Install Package"
+			],
+			[
+				"package",
+				"Package Control: Install Package"
+			],
+			[
+				"gosublime: fm",
+				"GoSublime: Fmt the current file (without saving it)"
+			],
+			[
+				"packa",
+				"Package Control: Install Package"
+			],
+			[
+				"pa",
+				"Package Control: Install Package"
+			]
+		],
+		"width": 0.0
+	},
+	"console":
+	{
+		"height": 182.0,
+		"history":
+		[
+		]
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"file_history":
+	[
+		"/Users/syd/Library/Caches/Transmit/3FDF4E79-111B-4A32-8C2C-CB27F008019D/weekendz.club/home/syd/go/src/github.com/getparty/weekendzd/handler/pay/unifiedorder.go",
+		"/Users/syd/Library/Caches/Transmit/AE2481A0-C4AB-4FE5-B545-B7E0E13CADAF/weekendz.club/home/syd/go/src/github.com/getparty/weekendzd/common/interface.pay.go",
+		"/Users/syd/Library/Caches/Transmit/ADC9259C-D2A6-4D0F-9746-CB6EA6B1FFF6/weekendz.club/home/syd/go/src/github.com/getparty/weekendzd/common/interface.order.go",
+		"/Users/syd/WeChatProjects/moyu-miniapp/src/components/poi-toolbar.wpy",
+		"/Users/syd/WeChatProjects/moyu-miniapp/wepy.config.js",
+		"/Users/syd/Desktop/Fafetch API Document Sample.md",
+		"/Users/syd/Desktop/Fafetch API Document Sample",
+		"/Users/syd/WeChatProjects/moyu-miniapp/src/mixins/utils.js",
+		"/Users/syd/Library/Caches/Transmit/DB57EDA1-DE3D-47ED-910D-334F6890007F/weekendz.club/home/syd/go/src/github.com/getparty/moyud/common/interface.user.go",
+		"/Users/syd/Library/Caches/Transmit/7B4F8BFA-6504-4AE9-99CB-57598F772328/weekendz.club/home/syd/go/src/github.com/getparty/moyud/common/interface.song.go",
+		"/Users/syd/Library/Caches/Transmit/4DFCC01A-3B5F-4CFA-8433-69426B2CA984/weekendz.club/home/syd/go/src/github.com/getparty/moyud/common/interface.playlist.go",
+		"/Users/syd/Library/Caches/Transmit/DAEEB6E9-5F17-4E54-A54D-66BA9C944EFB/weekendz.club/home/syd/go/src/github.com/getparty/weekendzd/handler/event/list.go",
+		"/Users/syd/WeChatProjects/jd-vip/src/app/user-profile/user-profile.module.ts",
+		"/Users/syd/WeChatProjects/moyu-miniapp/src/mixins/init.js",
+		"/Users/syd/WeChatProjects/moyu-miniapp/src/pages/poi.wpy",
+		"/Users/syd/WeChatProjects/moyu-miniapp/src/components/playlist-cell.wpy",
+		"/Users/syd/WeChatProjects/moyu-miniapp/src/pages/user.wpy",
+		"/Users/syd/Library/Caches/Transmit/8A28FBC6-518B-4D6C-B8A9-138D1C85B4E1/weekendz.club/home/syd/go/src/github.com/getparty/moyud/handler/user/invite.go",
+		"/Users/syd/WeChatProjects/moyu-miniapp/src/components/groups-selector.wpy",
+		"/Users/syd/WeChatProjects/moyu-miniapp/src/pages/choose-song.wpy",
+		"/Users/syd/WeChatProjects/moyu-miniapp/src/pages/index.wpy",
+		"/Users/syd/WeChatProjects/moyu-miniapp/src/pages/guess.wpy",
+		"/Users/syd/WeChatProjects/moyu-miniapp/src/pages/artist.wpy",
+		"/Users/syd/WeChatProjects/moyu-miniapp/src/components/user-meta.wpy",
+		"/Users/syd/WeChatProjects/moyu-miniapp/src/pages/billboard.wpy",
+		"/Users/syd/Library/Caches/Transmit/619C5778-58C7-4D77-B6CD-215BE706BB54/weekendz.club/home/syd/go/src/github.com/getparty/moyud/handler/song/add.go",
+		"/Users/syd/Library/Caches/Transmit/255FF6A8-D4D6-4094-B396-3F49C9D6CC25/weekendz.club/home/syd/go/src/github.com/getparty/moyud/common/consts.go",
+		"/Users/syd/Library/Caches/Transmit/5D788814-605F-4A85-A10E-3338D8AF7386/weekendz.club/home/syd/go/src/github.com/getparty/weekendzd/handler/user/invite.go",
+		"/Users/syd/Library/Caches/Transmit/392756A0-A528-4EE5-BC9A-7C0E04DE2D79/weekendz.club/home/syd/go/src/github.com/getparty/weekendzd/handler/util/wechat.qrcode.go",
+		"/Users/syd/Library/Caches/Transmit/207EFBF0-1FD2-49A9-93E2-637E0227C529/weekendz.club/home/syd/go/src/github.com/getparty/weekendzd/handler/util/wechat.decrypt.go",
+		"/Users/syd/Library/Caches/Transmit/7344FE0A-4EDE-4087-A8DB-6EF35C53F1BE/weekendz.club/home/syd/go/src/github.com/getparty/weekendzd/handler/pay/unifiedorder.go",
+		"/Users/syd/Library/Caches/Transmit/6BC158D5-7C1F-4D46-8762-8B518B0D7597/weekendz.club/home/syd/go/src/github.com/getparty/weekendzd/handler/pay/notify.go",
+		"/Users/syd/Library/Caches/Transmit/397E9E0E-3A62-4D7A-B2A2-6EEEC2A0B6BA/weekendz.club/home/syd/go/src/github.com/getparty/weekendzd/handler/event/list.go",
+		"/Users/syd/Library/Caches/Transmit/D3697640-A8FF-43CD-BCD3-C4E82C1819F4/weekendz.club/home/syd/go/src/github.com/getparty/weekendzd/handler/auth/wechat.go",
+		"/Users/syd/Library/Caches/Transmit/0B328F1A-48CC-48EC-8C57-7624D1A23372/weekendz.club/home/syd/go/src/github.com/getparty/weekendzd/handler/auth/auth.go",
+		"/Users/syd/Library/Caches/Transmit/80D9BA91-64ED-45F2-987E-1A2F3AD66B94/weekendz.club/home/syd/go/src/github.com/getparty/moyud/common/interface.user.activity.go",
+		"/Users/syd/Library/Caches/Transmit/02CAB312-BC6B-4540-BF88-4B13E96F4F72/weekendz.club/home/syd/go/src/github.com/getparty/moyud/common/interface.service.go",
+		"/Users/syd/Library/Caches/Transmit/82B70FFE-F809-4A14-81DE-16CD8796D435/weekendz.club/home/syd/go/src/github.com/getparty/moyud/handler/song/stream.go",
+		"/Users/syd/Library/Caches/Transmit/7AF6C7B9-2F5F-45E1-9C9F-93137DBA28F3/weekendz.club/home/syd/go/src/github.com/getparty/moyud/common/interface.song.go",
+		"/Users/syd/Library/Caches/Transmit/DBB08753-BAF3-479B-A64A-FEA0D6E7E1CB/weekendz.club/home/syd/go/src/github.com/getparty/moyud/router/static/static.go",
+		"/Users/syd/Library/Caches/Transmit/43D0CB35-8577-47A7-AF6F-2A5A56EF843F/weekendz.club/home/syd/go/src/github.com/getparty/moyud/handler/poi/playing.go",
+		"/Users/syd/WeChatProjects/moyu-miniapp/src/components/navbar.wpy",
+		"/Users/syd/Library/Caches/Transmit/C0FEA6CD-017E-4EBB-80A2-23DCA4566B47/weekendz.club/home/syd/go/src/github.com/getparty/moyud/common/interface.user.go",
+		"/Users/syd/Library/Caches/Transmit/3E07A0A6-1324-4615-9381-BFD58319F744/weekendz.club/home/syd/go/src/github.com/getparty/moyud/handler/group/playing.go",
+		"/Users/syd/Library/Caches/Transmit/A2718005-7ED5-41E3-9245-BC296BE87160/weekendz.club/home/syd/go/src/github.com/getparty/moyud/handler/poi/playing.go",
+		"/Users/syd/Library/Caches/Transmit/9435649D-F5B8-49C3-B0FF-56BCACF876FE/weekendz.club/home/syd/go/src/github.com/getparty/moyud/common/interface.user.activity.go",
+		"/Users/syd/Library/Caches/Transmit/0C932358-DC7A-4A67-AAEF-34FEF21ABFD1/weekendz.club/home/syd/go/src/github.com/getparty/moyud/handler/ws/msg.go",
+		"/Users/syd/Library/Caches/Transmit/F0DBF1BD-DFA8-4FC9-B7CF-5F012127394D/weekendz.club/home/syd/go/src/github.com/getparty/moyud/common/interface.poi.go",
+		"/Users/syd/Library/Caches/Transmit/AD1932E0-51A4-4743-AB08-A94ED84F4A3E/weekendz.club/home/syd/go/src/github.com/getparty/moyud/handler/user/info.go",
+		"/Users/syd/Library/Mobile Documents/com~apple~CloudDocs/Documents/文本.txt",
+		"/Users/syd/Library/Caches/Transmit/C2A62681-891F-4F70-8B47-3B6C0C2E27C1/weekendz.club/home/syd/go/src/github.com/getparty/moyud/handler/song/guess.go",
+		"/Users/syd/Library/Caches/Transmit/9E852259-CB4B-4009-88FE-041D055C1005/weekendz.club/home/syd/go/src/github.com/getparty/moyud/handler/user/share.ticket.go",
+		"/Users/syd/Library/Caches/Transmit/8E61DE26-ABAD-4898-AFCA-C31F581E1158/weekendz.club/home/syd/go/src/github.com/getparty/moyud/handler/user/invite.go",
+		"/Users/syd/Library/Caches/Transmit/E5CEC0DF-A397-438D-8203-4827D5FD1C3A/weekendz.club/home/syd/go/src/github.com/getparty/moyud/handler/poi/playlist.skip.go",
+		"/Users/syd/Library/Caches/Transmit/5C0CAEFC-A5DE-47CB-9247-DCCCAF338120/weekendz.club/home/syd/go/src/github.com/getparty/moyud/common/interface.poi.go",
+		"/Users/syd/Library/Caches/Transmit/F9328C00-D928-4DC9-958C-F2F239172937/weekendz.club/home/syd/go/src/github.com/getparty/moyud/common/interface.group.go",
+		"/Users/syd/Library/Caches/Transmit/A2B400AB-7372-4F73-88E2-050CB08C0C40/weekendz.club/home/syd/go/src/github.com/getparty/moyud/handler/user/info.go",
+		"/Users/syd/Library/Caches/Transmit/D9140EBC-658C-4D03-94AC-77A8DB04D6AB/weekendz.club/home/syd/go/src/github.com/getparty/moyud/handler/poi/stats.go",
+		"/Users/syd/Library/Caches/Transmit/E6654B2F-7C05-4330-9888-BE1A8AE71C12/weekendz.club/home/syd/go/src/github.com/getparty/moyud/common/interface.group.activity.go",
+		"/Users/syd/Library/Caches/Transmit/461B8F8F-AA43-4725-8981-2000CB4E1E61/weekendz.club/home/syd/go/src/github.com/getparty/moyud/common/interface.poi.go",
+		"/Users/syd/Library/Caches/Transmit/B75212C5-9854-4362-A81A-AB45B391DBFC/weekendz.club/home/syd/go/src/github.com/getparty/moyud/common/interface.poi.go",
+		"/Users/syd/Library/Caches/Transmit/FB2E5884-46D2-4DEE-8CC6-B1CAFE899146/weekendz.club/home/syd/go/src/github.com/getparty/moyud/common/interface.msg.go",
+		"/Users/syd/Library/Caches/Transmit/36F320B8-6F09-4F00-894D-8D3806AF6066/weekendz.club/home/syd/go/src/github.com/getparty/moyud/common/interface.playlist.go",
+		"/Users/syd/Library/Caches/Transmit/53D23634-5E0A-4380-8D60-34C0C1F5BC8D/weekendz.club/home/syd/go/src/github.com/getparty/moyud/common/interface.group.go",
+		"/Users/syd/Library/Caches/Transmit/2B0AADA7-AB31-467A-B4E3-E863AEFBCAA7/weekendz.club/home/syd/go/src/github.com/getparty/moyud/common/interface.user.go",
+		"/Users/syd/Library/Caches/Transmit/FF471653-223C-4D1A-9CF0-574704ACCA81/weekendz.club/home/syd/go/src/github.com/getparty/moyud/handler/user/invite.go",
+		"/Users/syd/Library/Caches/Transmit/E2A1ED44-AB31-496D-9F8A-882B781D2EFA/weekendz.club/home/syd/go/src/github.com/getparty/moyud/services/cleaner/service.go",
+		"/Users/syd/Library/Caches/Transmit/6AEE4A38-B0CA-4C65-82D2-E10AF99DDF4E/weekendz.club/home/syd/go/src/github.com/getparty/moyud/handler/user/private.messages.go",
+		"/Users/syd/Library/Caches/Transmit/7078993C-49B7-41FB-89C0-43584724C310/weekendz.club/home/syd/go/src/github.com/getparty/moyud/common/interface.msg.go",
+		"/Users/syd/Library/Caches/Transmit/2AF67E5E-4838-4C62-A5B5-F8C9A96FD08E/weekendz.club/home/syd/go/src/github.com/getparty/moyud/handler/poi/playlist.fav.go",
+		"/Users/syd/Library/Caches/Transmit/41C3F104-B66E-47E6-B4C9-B050E050F9A1/weekendz.club/home/syd/go/src/github.com/getparty/moyud/common/interface.song.go",
+		"/Users/syd/Library/Caches/Transmit/B2ECB310-5688-4F19-9DCE-E5977DC860AA/weekendz.club/home/syd/go/src/github.com/getparty/moyud/common/interface.album.go",
+		"/Users/syd/Library/Caches/Transmit/D7AA5DE4-7641-44DB-993D-E863967520F6/weekendz.club/home/syd/go/src/github.com/getparty/moyud/common/interface.artist.go",
+		"/Users/syd/Library/Caches/Transmit/DAAC4F08-087C-48EB-8F96-EBEBC201DF05/weekendz.club/home/syd/go/src/github.com/getparty/moyud/common/interface.song.go",
+		"/Users/syd/WeChatProjects/moyu-miniapp/src/style/common.less",
+		"/Users/syd/Library/Caches/Transmit/7251B55F-CC73-43B4-8138-A3AA4A918C82/weekendz.club/home/syd/go/src/github.com/getparty/moyud/handler/auth/auth.go",
+		"/Users/syd/Library/Caches/Transmit/99494C51-E606-43EA-9DBA-43ABEE07EAA3/weekendz.club/home/syd/go/src/github.com/getparty/moyud/handler/song/stream.go",
+		"/Users/syd/Library/Caches/Transmit/E59AA746-EFF9-40F9-9755-881AD453A3EF/weekendz.club/home/syd/go/src/github.com/getparty/moyud/common/interface.song.go",
+		"/Users/syd/Library/Caches/Transmit/E5289E73-9B25-4590-83D6-E81202993060/weekendz.club/home/syd/go/src/github.com/getparty/moyud/utils/number.go",
+		"/Users/syd/Library/Caches/Transmit/FCFE5F77-3986-4082-953A-E73DAFE861C3/weekendz.club/home/syd/go/src/github.com/getparty/moyud/common/interface.album.go",
+		"/Users/syd/Library/Caches/Transmit/7E1D955B-7699-4A97-AAD3-171498A9D3E3/weekendz.club/home/syd/go/src/github.com/getparty/moyud/handler/poi/playing.go",
+		"/Users/syd/WeChatProjects/moyu-miniapp/src/store/actions/playlist.js",
+		"/Users/syd/WeChatProjects/moyu-miniapp/src/store/reducers/playlist.js",
+		"/Users/syd/Library/Caches/Transmit/9C166967-D328-4C25-B7BD-15091C3E67DC/weekendz.club/home/syd/go/src/github.com/getparty/moyud/handler/poi/playing.go",
+		"/Users/syd/Library/Caches/Transmit/8990F6D2-7BCC-464B-9C49-C89556D714CA/weekendz.club/home/syd/go/src/github.com/getparty/moyud/handler/group/playing.go",
+		"/Users/syd/Library/Caches/Transmit/79570145-5301-42E4-B0E2-F27E8AC05E55/weekendz.club/home/syd/go/src/github.com/getparty/moyud/common/interface.group.go",
+		"/Users/syd/WeChatProjects/moyu-miniapp/src/components/poi-stats.wpy",
+		"/Users/syd/Library/Caches/Transmit/7C867850-1D8E-47DA-9B96-DF886B33435B/weekendz.club/home/syd/go/src/github.com/getparty/moyud/router/song.go",
+		"/Users/syd/Library/Caches/Transmit/1E3255A1-A345-4E33-B500-4AD6E3A943FC/weekendz.club/home/syd/go/src/github.com/getparty/moyud/handler/song/stream.go",
+		"/Users/syd/Library/Caches/Transmit/F310DF1C-7117-430B-AD53-8322B19E21BC/weekendz.club/home/syd/go/src/github.com/getparty/moyud/handler/song/guess.go",
+		"/Users/syd/WeChatProjects/moyu-miniapp/src/pages/chat.wpy",
+		"/Users/syd/Library/Caches/Transmit/96E517FC-A5D1-46CB-BD54-70D1EFBFCF9F/weekendz.club/home/syd/go/src/github.com/getparty/moyud/common/interface.playlist.go",
+		"/Users/syd/Library/Caches/Transmit/9698AD71-5202-45C5-A3B3-31CD80484449/weekendz.club/home/syd/go/src/github.com/getparty/moyud/handler/song/guess.go",
+		"/Users/syd/Library/Caches/Transmit/D09D4359-5D7A-4936-A2FA-CBF7C764B631/weekendz.club/home/syd/go/src/github.com/getparty/moyud/common/interface.config.go",
+		"/Users/syd/Library/Caches/Transmit/92C5FF52-DDA1-430E-95E9-1BA3B950B834/weekendz.club/home/syd/go/src/github.com/getparty/moyud/handler/poi/playlist.fav.go",
+		"/Users/syd/Library/Caches/Transmit/1215E30E-3714-4E6F-8DA2-3F933D0203F0/weekendz.club/home/syd/go/src/github.com/getparty/moyud/handler/poi/playing.go",
+		"/Users/syd/Library/Caches/Transmit/0DAF848F-6460-47BA-96E2-AD036267C5A6/weekendz.club/home/syd/go/src/github.com/getparty/moyud/router/song.go",
+		"/Users/syd/WeChatProjects/moyu-miniapp/src/components/poi-card.wpy",
+		"/Users/syd/WeChatProjects/moyu-miniapp/src/components/group-card.wpy",
+		"/Users/syd/WeChatProjects/moyu-miniapp/src/app.wpy",
+		"/Users/syd/WeChatProjects/moyu-miniapp/src/pages/auth-location.wpy",
+		"/Users/syd/WeChatProjects/moyu-miniapp/src/utils/geo.js",
+		"/Users/syd/Library/Caches/Transmit/3D399531-C115-484D-BBE9-1A2B98A43D30/weekendz.club/home/syd/go/src/github.com/getparty/moyud/handler/poi/playing.go",
+		"/Users/syd/Library/Caches/Transmit/E59C7DD6-71DD-42BA-8A23-BB8FE170918A/weekendz.club/home/syd/go/src/github.com/getparty/moyud/handler/group/playing.go",
+		"/Users/syd/WeChatProjects/moyu-miniapp/src/utils/index.js",
+		"/Users/syd/WeChatProjects/moyu-miniapp/src/store/reducers/auth.js",
+		"/Users/syd/WeChatProjects/moyu-miniapp/src/store/types/auth.js",
+		"/Users/syd/WeChatProjects/moyu-miniapp/src/store/actions/auth.js",
+		"/Users/syd/Library/Caches/Transmit/438EAA3E-E09E-465A-9282-AA2C0705D656/weekendz.club/home/syd/go/src/github.com/getparty/moyud/common/interface.user.go",
+		"/Users/syd/Library/Caches/Transmit/CC194AAF-42E5-419B-B1EB-0D3B7A66508F/weekendz.club/home/syd/go/src/github.com/getparty/moyud/common/interface.album.go",
+		"/Users/syd/Library/Caches/Transmit/B1051DD1-E672-4F79-9DC0-33DA1C188033/weekendz.club/home/syd/go/src/github.com/getparty/moyud/handler/poi/playlist.fav.go",
+		"/Users/syd/Library/Caches/Transmit/FC0F0742-2790-4DF3-B897-DC8D50A69601/weekendz.club/home/syd/go/src/github.com/getparty/moyud/router/song.go",
+		"/Users/syd/Library/Caches/Transmit/F5D54B28-A26E-4543-AEF9-CAB5FDA46C17/weekendz.club/home/syd/go/src/github.com/getparty/moyud/handler/poi/playlist.skip.go",
+		"/Users/syd/Library/Caches/Transmit/5B11B2B3-998E-4916-9A59-2777FAD80514/weekendz.club/home/syd/go/src/github.com/getparty/moyud/handler/poi/nearby.go",
+		"/Users/syd/Library/Caches/Transmit/E6E1BB54-7390-4E9D-8A44-0691812C1693/weekendz.club/home/syd/go/src/github.com/getparty/moyud/handler/group/songs.go",
+		"/Users/syd/Library/Caches/Transmit/E8031700-BDD5-49DB-B836-48289525AE99/weekendz.club/home/syd/go/src/github.com/getparty/moyud/router/song.go",
+		"/Users/syd/Library/Caches/Transmit/CC04632A-1A18-48EF-B4CD-58B5BD471A58/weekendz.club/home/syd/go/src/github.com/getparty/moyud/router/song.go",
+		"/Users/syd/Library/Caches/Transmit/72E1B4E4-3160-40A8-AD50-0061A9597113/weekendz.club/home/syd/go/src/github.com/getparty/moyud/handler/song/stream.go",
+		"/Users/syd/Library/Caches/Transmit/05E35E5D-DC3E-4EB9-88E8-24A0E2E3AB2A/weekendz.club/home/syd/go/src/github.com/getparty/moyud/handler/song/stream.go",
+		"/Users/syd/Library/Caches/Transmit/6773D9CA-D9B7-4750-8117-14123E646F16/weekendz.club/home/syd/go/src/github.com/getparty/moyud/router/util.go",
+		"/Users/syd/Library/Caches/Transmit/D76C6B6B-5704-441D-BECC-6C464E70A192/weekendz.club/home/syd/go/src/github.com/getparty/moyud/common/interface.poi.go",
+		"/Users/syd/Library/Caches/Transmit/EE3A1037-A31F-46FF-BA30-9535BAB0B75D/weekendz.club/home/syd/go/src/github.com/getparty/moyud/handler/song/guess.go",
+		"/Users/syd/Library/Caches/Transmit/982495A1-9174-4C8E-9F94-BCC4285DD6A0/weekendz.club/home/syd/go/src/github.com/getparty/moyud/handler/util/blur.go",
+		"/Users/syd/Library/Caches/Transmit/8277AF94-0C07-499E-8808-BAA47245A0C8/weekendz.club/home/syd/go/src/github.com/getparty/moyud/handler/poi/marker.go",
+		"/Users/syd/Library/Caches/Transmit/74EB120C-EFEB-404D-B00F-DB72602F5485/weekendz.club/home/syd/go/src/github.com/getparty/moyud/router/util.go",
+		"/Users/syd/Library/Caches/Transmit/149C73B7-B5C4-49D1-B8B6-FD59D107CF1A/weekendz.club/home/syd/go/src/github.com/getparty/moyud/router/util.go",
+		"/Users/syd/Library/Caches/Transmit/1943A695-1516-4813-A446-73D01815659B/weekendz.club/home/syd/go/src/github.com/getparty/moyud/common/interface.config.go",
+		"/Users/syd/Library/Caches/Transmit/E50D65C7-59A2-4506-A4A2-7BFAE7FA3A92/weekendz.club/home/syd/go/src/github.com/getparty/moyud/common/interface.playlist.go"
+	],
+	"find":
+	{
+		"height": 31.0
+	},
+	"find_in_files":
+	{
+		"height": 112.0,
+		"where_history":
+		[
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": true,
+		"find_history":
+		[
+		],
+		"highlight": true,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": false,
+		"replace_history":
+		[
+		],
+		"reverse": false,
+		"show_context": true,
+		"use_buffer2": true,
+		"whole_word": false,
+		"wrap": true
+	},
+	"groups":
+	[
+		{
+			"selected": 0,
+			"sheets":
+			[
+				{
+					"buffer": 0,
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 0,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Text/Plain text.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 0,
+					"type": "text"
+				}
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 31.0
+	},
+	"input":
+	{
+		"height": 40.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"output.9o:///Users/syd/Library/Caches/Transmit/A0F82EF0-0C6A-40B4-BF55-BEA02502C86A/ec2-54-238-177-45.ap-northeast-1.compute.amazonaws.com/opt/go/src/github.com/tokenme/tmm/handler/redeem":
+	{
+		"height": 146.0
+	},
+	"output.9o:///Users/syd/Library/Caches/Transmit/A124D518-70B2-46C8-B598-4CC9C5591D32/ec2-54-238-177-45.ap-northeast-1.compute.amazonaws.com/opt/go/src/github.com/tokenme/tmm/common":
+	{
+		"height": 146.0
+	},
+	"output.9o:///Users/syd/Library/Caches/Transmit/A8A80217-A894-4053-852D-01C25E709EC2/ec2-54-238-177-45.ap-northeast-1.compute.amazonaws.com/opt/go/src/github.com/tokenme/tmm/tools/tokenprofile":
+	{
+		"height": 146.0
+	},
+	"output.9o:///Users/syd/Library/Caches/Transmit/CCA73E93-2DBE-4DFF-9929-3D348ABB2130/ec2-54-238-177-45.ap-northeast-1.compute.amazonaws.com/opt/go/src/github.com/tokenme/tmm/handler/task":
+	{
+		"height": 146.0
+	},
+	"output.GoSublime-main-output":
+	{
+		"height": 146.0
+	},
+	"output.GoSublime-output":
+	{
+		"height": 146.0
+	},
+	"output.MarGo-output":
+	{
+		"height": 146.0
+	},
+	"output.find_results":
+	{
+		"height": 0.0
+	},
+	"pinned_build_system": "",
+	"project": "depthtree.sublime-project",
+	"replace":
+	{
+		"height": 58.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_symbol":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"selected_group": 0,
+	"settings":
+	{
+	},
+	"show_minimap": true,
+	"show_open_files": false,
+	"show_tabs": true,
+	"side_bar_visible": true,
+	"side_bar_width": 223.0,
+	"status_bar_visible": true,
+	"template_settings":
+	{
+	}
+}
