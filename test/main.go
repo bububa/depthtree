@@ -34,6 +34,10 @@ func main() {
 		fmt.Println(node.PrintTree(2))
 		// children := node.GetChildren(2)
 		// spew.Dump(children)
+		children := node.GetChildren(2)
+		for _, n := range children {
+			fmt.Println(n.PrintTree(2))
+		}
 	}
 	// tree.DepthCluster(3)
 	clusters := tree.ChildrenCountInDepthCluster(2, 3)

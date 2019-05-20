@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1,minimum-scale=1,user-scalable=no,viewport-fit=cover">
+    <link href="./css/ui.css" rel="preload" as="style">
+    <link rel="stylesheet" href="./css/ui.css" as="style">
+    <link href="./js/d3/d3.js" rel="preload" as="script">
+    <script type="text/javascript" src="./js/d3/d3.js"></script>
+    <link href="./js/d3/d3.layout.js" rel="preload" as="script">
+    <script type="text/javascript" src="./js/d3/d3.layout.js"></script>
+    <link href="./js/d3/d3.geom.js" rel="preload" as="script">
+    <script type="text/javascript" src="./js/d3/d3.geom.js"></script>
+    <link href="./js/relation-chart.js" rel="preload" as="script">
+    <script type="text/javascript" src="./js/relation-chart.js"></script>
+    <link href="./js/api.js" rel="preload" as="script">
+    <script type="text/javascript" src="./js/api.js"></script>
+    <link href="./js/ui.js" rel="preload" as="script">
+    <script type="text/javascript" src="./js/ui.js"></script>
+    <title>DepthTree Visualization</title>
+</head>
+<body>
+    <section id="toolbar">
+        <select name="dblist" onchange="onDbChange(this.value)"></select>
+        <button onclick="onViewModeChange(NodeViewMode)">Node View</button>
+        <label for="nodeIdInput">NodeId</label>
+        <input name="nodeIdInput" onchange="onNodeIdInputChange(this.value)" />
+        <button onclick="onViewModeChange(DepthClusterViewMode)">Depth Cluster</button>
+        <button onclick="onViewModeChange(ChildrenClusterViewMode)">Children Cluster</button>
+        <label for="depthInput">Depth</label>
+        <input name="depthInput" onchange="onDepthInputChange(this.value)" />
+    </section>
+    <section class="ui-wrapper">
+        <div id="RelationChart" class="relation-chart"></div>
+        <ol class="top-list"></ol>
+    </section>
+    <script type="text/javascript">
+        var chart = new RelationChart('#RelationChart', 1024, 800);
+        var api = new Api('http://localhost:8011');
+        var ui = new UI(chart, api);
+        api.getDbs().then(function(dbs) {
+            var select = document.querySelector('select[name="dblist"]');
+            dbs.forEach(function(dbname) {
+                var option = document.createElement('option');
+                option.name = dbname;
+                option.text = dbname;
+                select.appendChild(option);
+            });
+            api.useDb(dbs[0]);
+            ui.updateNodeView();
+            ui.updateTopChildrenView('.top-list', 10);
+        }, function(err) {
+            alert(err);
+        });
+
+        var onDbChange = function(e) {
+            ui.changeDb(e);
+            ui.updateTopChildrenView('.top-list', 10);
+        };
+
+        var onNodeIdInputChange = function(e) {
+            var nodeId = parseInt(e) || 0;
+            ui.setRootNode(nodeId);
+        };
+        var onDepthInputChange = function(e) {
+            var depth = parseInt(e) || 0;
+            ui.updateDepth(depth);
+            ui.updateTopChildrenView('.top-list', 10);
+        };
+        var onViewModeChange = function(mode) {
+            ui.updateViewMode(mode);
+        };
+    </script>
+</body>
+</html>

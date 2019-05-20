@@ -14,7 +14,7 @@ type Node struct {
 	MaxDepth             int                `json:"mxd,omitempty"`
 	MinDepth             int                `json:"mnd,omitempty"`
 	childrenCountInDepth map[int]int        `json:"-"`
-	ChildrenCount        int                `json:"n"`
+	ChildrenCount        int                `json:"n,omitempty"`
 	parentMap            map[int64]struct{} `json:"-"`
 	childrenMap          map[int64]struct{} `json:"-"`
 	sync.RWMutex
@@ -209,24 +209,33 @@ func (this *Node) Depth() (int, int) {
 	return minDepth + 1, maxDepth + 1
 }
 
-func (this *Node) GetChildren(depth int) []*Node {
+func (this *Node) GetChildren(depth int) ([]*Node, int) {
 	this.RLock()
 	children := this.Children
-	childrenCount := len(children)
+	totalChildren := len(children)
 	this.RUnlock()
 	if depth < 0 {
 		depth = -1
 	}
-	if depth == 0 || childrenCount == 0 {
-		return children
+	if depth == 0 || totalChildren == 0 {
+		this.Lock()
+		this.childrenCountInDepth[depth] = totalChildren
+		this.Unlock()
+		return nil, totalChildren
 	}
 	var nodes []*Node
 	for _, child := range children {
-		childNodes := child.GetChildren(depth - 1)
+		childNodes, childrenCount := child.GetChildren(depth - 1)
+		totalChildren += childrenCount
 		node := child.Copy(childNodes)
+		node.ChildrenCount = childrenCount
 		nodes = append(nodes, node)
 	}
-	return nodes
+	this.Lock()
+	this.childrenCountInDepth[depth] = totalChildren
+	this.ChildrenCount = totalChildren
+	this.Unlock()
+	return nodes, totalChildren
 }
 
 func (this *Node) CountChildren(depth int) int {

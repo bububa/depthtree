@@ -22,7 +22,11 @@ func RootsHandler(c *gin.Context) {
 	nodes := tree.RootNodes()
 	var roots []*depthtree.Node
 	for _, n := range nodes {
-		roots = append(roots, n.Copy(nil))
+		n.Depth()
+		childCount := n.CountChildren(-1)
+		node := n.Copy(nil)
+		node.ChildrenCount = childCount
+		roots = append(roots, node)
 	}
 	c.JSON(http.StatusOK, roots)
 }

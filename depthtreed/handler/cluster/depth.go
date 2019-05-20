@@ -25,7 +25,7 @@ func DepthHandler(c *gin.Context) {
 	if CheckWithCode(k64 == 0, BADREQUEST_ERROR, "missing k", c) {
 		return
 	}
-	limit64, _ := Uint64Value(c.Query("limit"), 10)
+	limit64, _ := Uint64Value(c.Query("limit"), 0)
 	var (
 		k     = int(k64)
 		limit = int(limit64)
@@ -40,6 +40,9 @@ func DepthHandler(c *gin.Context) {
 			nodes = append(nodes, node.Copy(nil))
 		}
 		c.Nodes = nodes
+		if len(c.Roots) > 100 {
+			c.Roots = nil
+		}
 	}
 	c.JSON(http.StatusOK, clusters)
 }

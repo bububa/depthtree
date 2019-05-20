@@ -48,6 +48,16 @@ func (this *Database) Use(name string) *Tree {
 	return nil
 }
 
+func (this *Database) List() []string {
+	this.RLock()
+	defer this.RUnlock()
+	var dbs []string
+	for k, _ := range this.trees {
+		dbs = append(dbs, k)
+	}
+	return dbs
+}
+
 func (this *Database) Truncate(name string) {
 	this.Lock()
 	delete(this.trees, name)

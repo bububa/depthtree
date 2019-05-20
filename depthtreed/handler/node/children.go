@@ -32,6 +32,6 @@ func ChildrenHandler(c *gin.Context) {
 	if CheckWithCode(node == nil, NOTFOUND_ERROR, "not found node", c) {
 		return
 	}
-	children := node.GetChildren(int(depth))
-	c.JSON(http.StatusOK, children)
+	children, childrenCount := node.GetChildren(int(depth))
+	c.JSON(http.StatusOK, gin.H{"nodes": children, "count": childrenCount})
 }

@@ -47,6 +47,9 @@ func ChildrenHandler(c *gin.Context) {
 			nodes = append(nodes, n)
 		}
 		c.Nodes = nodes
+		if len(c.Roots) > 100 {
+			c.Roots = nil
+		}
 	}
 	c.JSON(http.StatusOK, clusters)
 }

@@ -57,8 +57,8 @@ type Cluster struct {
 	Center clusters.Coordinates `json:"center"`
 	Range  []int                `json:"range"`
 	Count  int                  `json:"count"`
-	Nodes  []*Node              `json:"nodes"`
-	Roots  []*Node              `json:"roots"`
+	Nodes  []*Node              `json:"nodes,omitempty"`
+	Roots  []*Node              `json:"roots,omitempty"`
 }
 
 func NewCluster(cluster clusters.Cluster, depth int) *Cluster {
@@ -109,7 +109,12 @@ func NewCluster(cluster clusters.Cluster, depth int) *Cluster {
 	roots := tree.RootNodes()
 	for _, node := range roots {
 		if depth == -2 {
-			this.Roots = append(this.Roots, node.Copy(nil))
+			n := node.Copy(nil)
+			if ori, found := nodeMap[n.Id]; found {
+				n.MaxDepth = ori.MaxDepth
+				n.MinDepth = ori.MinDepth
+			}
+			this.Roots = append(this.Roots, n)
 		} else {
 			if ori, found := nodeMap[node.Id]; found {
 				this.Roots = append(this.Roots, ori)

@@ -9,6 +9,7 @@ import (
 	"github.com/mkideal/log"
 	"io"
 	"os"
+	"sort"
 	"sync"
 )
 
@@ -177,6 +178,44 @@ func (this *Tree) ChildrenCountInDepthCluster(depth int, k int) []*Cluster {
 	for _, c := range clusters {
 		cluster := NewCluster(c, depth)
 		ret = append(ret, cluster)
+	}
+	return ret
+}
+
+func (this *Tree) TopChildrenCounts(depth int, limit int) []*Node {
+	roots := this.RootNodes()
+	for _, node := range roots {
+		node.Depth()
+		if depth < 0 {
+			node.CountChildren(depth)
+		}
+	}
+	wg := &sync.WaitGroup{}
+	this.RLock()
+	var nodes []*Node
+	for _, node := range this.nodeMap {
+		if depth >= 0 {
+			wg.Add(1)
+			go func(wg *sync.WaitGroup, n *Node) {
+				n.CountChildren(depth)
+				wg.Done()
+			}(wg, node)
+		}
+		nodes = append(nodes, node)
+	}
+	this.RUnlock()
+	wg.Wait()
+	sliceSorter := NewChildrenCountNodeSlice(nodes, depth)
+	sort.Sort(sort.Reverse(sliceSorter))
+	sortedNodes := sliceSorter.Nodes()
+	var ret []*Node
+	for _, node := range sortedNodes {
+		if len(ret) >= limit {
+			break
+		}
+		n := node.Copy(nil)
+		n.ChildrenCount = node.ChildrenCountInDepth(depth)
+		ret = append(ret, n)
 	}
 	return ret
 }
