@@ -28,13 +28,19 @@ func BytesToInt64(b []byte) (int64, error) {
 
 type Tree struct {
 	nodeMap map[int64]*Node `json:"-"`
+	name    string
 	sync.RWMutex
 }
 
-func NewTree() *Tree {
+func NewTree(name string) *Tree {
 	return &Tree{
 		nodeMap: make(map[int64]*Node),
+		name:    name,
 	}
+}
+
+func (this *Tree) Name() string {
+	return this.name
 }
 
 func (this *Tree) AddRoot(id int64) {
@@ -102,10 +108,11 @@ func (this *Tree) RemoveNode(nodeId int64) bool {
 
 func (this *Tree) Find(nodeId int64) *Node {
 	this.RLock()
-	defer this.RUnlock()
 	if node, found := this.nodeMap[nodeId]; found {
+		this.RUnlock()
 		return node
 	}
+	this.RUnlock()
 	return nil
 }
 
@@ -214,14 +221,14 @@ func (this *Tree) TopChildrenCounts(depth int, limit int) []*Node {
 			break
 		}
 		n := node.Copy(nil)
-		n.ChildrenCount = node.ChildrenCountInDepth(depth)
+		n.ChildrenCount = int32(node.ChildrenCountInDepth(depth))
 		ret = append(ret, n)
 	}
 	return ret
 }
 
-func (this *Tree) Flush(name string) error {
-	f, err := os.OpenFile(name, os.O_WRONLY|os.O_TRUNC|os.O_CREATE, 0666)
+func (this *Tree) Flush(filePath string) error {
+	f, err := os.OpenFile(filePath, os.O_WRONLY|os.O_TRUNC|os.O_CREATE, 0666)
 	if err != nil {
 		return err
 	}
@@ -250,8 +257,8 @@ func (this *Tree) Flush(name string) error {
 	return nil
 }
 
-func (this *Tree) Reload(name string) error {
-	f, err := os.Open(name)
+func (this *Tree) Reload(filePath string) error {
+	f, err := os.Open(filePath)
 	if err != nil {
 		return err
 	}

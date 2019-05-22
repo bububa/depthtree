@@ -93,7 +93,7 @@ func NewCluster(cluster clusters.Cluster, depth int) *Cluster {
 		sort.Sort(sort.Reverse(sliceSorter))
 		this.Nodes = sliceSorter.Nodes()
 	}
-	tree := NewTree()
+	tree := NewTree("")
 	for _, node := range this.Nodes {
 		var foundParent bool
 		for _, p := range node.Parents() {
@@ -111,8 +111,8 @@ func NewCluster(cluster clusters.Cluster, depth int) *Cluster {
 		if depth == -2 {
 			n := node.Copy(nil)
 			if ori, found := nodeMap[n.Id]; found {
-				n.MaxDepth = ori.MaxDepth
-				n.MinDepth = ori.MinDepth
+				n.MaxDepth = int32(ori.MaxDepth)
+				n.MinDepth = int32(ori.MinDepth)
 			}
 			this.Roots = append(this.Roots, n)
 		} else {
@@ -129,7 +129,7 @@ func NewCluster(cluster clusters.Cluster, depth int) *Cluster {
 		this.Roots = []*Node{}
 		for _, node := range rootNodes {
 			n := node.Copy(nil)
-			n.ChildrenCount = node.ChildrenCountInDepth(depth)
+			n.ChildrenCount = int32(node.ChildrenCountInDepth(depth))
 			this.Roots = append(this.Roots, n)
 		}
 	}

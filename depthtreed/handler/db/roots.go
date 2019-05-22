@@ -25,7 +25,7 @@ func RootsHandler(c *gin.Context) {
 		n.Depth()
 		childCount := n.CountChildren(-1)
 		node := n.Copy(nil)
-		node.ChildrenCount = childCount
+		node.ChildrenCount = int32(childCount)
 		roots = append(roots, node)
 	}
 	c.JSON(http.StatusOK, roots)

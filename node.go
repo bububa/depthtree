@@ -5,27 +5,59 @@ import (
 	"github.com/xlab/treeprint"
 	"strconv"
 	"sync"
+	"sync/atomic"
 )
 
+type NodeMeta interface {
+	String() string
+}
+
 type Node struct {
-	Id                   int64              `json:"i"`
-	parents              []*Node            `json:"-"`
-	Children             []*Node            `json:"c,omitempty"`
-	MaxDepth             int                `json:"mxd,omitempty"`
-	MinDepth             int                `json:"mnd,omitempty"`
-	childrenCountInDepth map[int]int        `json:"-"`
-	ChildrenCount        int                `json:"n,omitempty"`
-	parentMap            map[int64]struct{} `json:"-"`
-	childrenMap          map[int64]struct{} `json:"-"`
+	Id              int64                   `json:"i"`
+	parents         []*Node                 `json:"-"`
+	Children        []*Node                 `json:"c,omitempty"`
+	MaxDepth        int32                   `json:"mxd,omitempty"`
+	MinDepth        int32                   `json:"mnd,omitempty"`
+	childrenInDepth *NodeChildrenDepthCount `json:"-"`
+	ChildrenCount   int32                   `json:"n,omitempty"`
+	parentMap       map[int64]struct{}      `json:"-"`
+	childrenMap     map[int64]struct{}      `json:"-"`
+	Meta            NodeMeta                `json:"meta,omitempty"`
 	sync.RWMutex
+}
+
+type NodeChildrenDepthCount struct {
+	mp map[int]int
+	sync.RWMutex
+}
+
+func NewNodeChildrenDepthCount() *NodeChildrenDepthCount {
+	return &NodeChildrenDepthCount{
+		mp: make(map[int]int),
+	}
+}
+
+func (this *NodeChildrenDepthCount) Set(depth int, count int) {
+	this.Lock()
+	this.mp[depth] = count
+	this.Unlock()
+}
+
+func (this *NodeChildrenDepthCount) Get(depth int) int {
+	this.RLock()
+	this.RUnlock()
+	if count, found := this.mp[depth]; found {
+		return count
+	}
+	return 0
 }
 
 func NewNode(id int64) *Node {
 	return &Node{
-		Id:                   id,
-		parentMap:            make(map[int64]struct{}),
-		childrenMap:          make(map[int64]struct{}),
-		childrenCountInDepth: make(map[int]int),
+		Id:              id,
+		parentMap:       make(map[int64]struct{}),
+		childrenMap:     make(map[int64]struct{}),
+		childrenInDepth: NewNodeChildrenDepthCount(),
 	}
 }
 
@@ -35,59 +67,56 @@ func (this *Node) String() string {
 
 func (this *Node) HasParent() bool {
 	this.RLock()
-	defer this.RUnlock()
-	return len(this.parents) > 0
+	hasParent := len(this.parents) > 0
+	this.RUnlock()
+	return hasParent
 }
 
 func (this *Node) Parents() []*Node {
 	this.RLock()
-	defer this.RUnlock()
-	var nodes []*Node
-	for _, node := range this.parents {
-		nodes = append(nodes, node)
-	}
+	nodes := make([]*Node, len(this.parents))
+	copy(nodes, this.parents)
+	this.RUnlock()
 	return nodes
 }
 
 func (this *Node) HasChildren() bool {
 	this.RLock()
-	defer this.RUnlock()
-	return len(this.Children) > 0
+	hasChildren := len(this.Children) > 0
+	this.RUnlock()
+	return hasChildren
 }
 
 func (this *Node) ChildrenIds() []int64 {
-	this.RLock()
-	defer this.RUnlock()
 	var ids []int64
+	this.RLock()
 	for _, node := range this.Children {
 		ids = append(ids, node.Id)
 	}
+	this.RUnlock()
 	return ids
 }
 
 func (this *Node) ChildrenCountInDepth(depth int) int {
-	this.RLock()
-	defer this.RUnlock()
-	if c, found := this.childrenCountInDepth[depth]; found {
-		return c
-	}
-	return 0
+	return this.childrenInDepth.Get(depth)
 }
 
 func (this *Node) RemoveChild(nodeId int64) {
-	this.RLock()
 	var (
 		nodes []*Node
 		found bool
 	)
-	for _, node := range this.Children {
+	this.RLock()
+	children := make([]*Node, len(this.Children))
+	copy(children, this.Children)
+	this.RUnlock()
+	for _, node := range children {
 		if node.Id == nodeId {
 			found = true
 			continue
 		}
 		nodes = append(nodes, node)
 	}
-	this.RUnlock()
 	this.Lock()
 	if found {
 		delete(this.childrenMap, nodeId)
@@ -98,26 +127,30 @@ func (this *Node) RemoveChild(nodeId int64) {
 
 func (this *Node) RemoveFromChildren() {
 	this.RLock()
-	for _, node := range this.Children {
+	children := make([]*Node, len(this.Children))
+	copy(children, this.Children)
+	this.RUnlock()
+	for _, node := range children {
 		node.RemoveParent(this.Id)
 	}
-	this.RUnlock()
 }
 
 func (this *Node) RemoveParent(nodeId int64) {
-	this.RLock()
 	var (
 		nodes []*Node
 		found bool
 	)
-	for _, node := range this.parents {
+	this.RLock()
+	parents := make([]*Node, len(this.parents))
+	copy(parents, this.parents)
+	this.RUnlock()
+	for _, node := range parents {
 		if node.Id == nodeId {
 			found = true
 			continue
 		}
 		nodes = append(nodes, node)
 	}
-	this.RUnlock()
 	this.Lock()
 	if found {
 		delete(this.parentMap, nodeId)
@@ -180,13 +213,12 @@ func (this *Node) Copy(children []*Node) *Node {
 
 func (this *Node) Depth() (int, int) {
 	this.RLock()
-	children := this.Children
+	children := make([]*Node, len(this.Children))
+	copy(children, this.Children)
 	this.RUnlock()
 	if len(children) == 0 {
-		this.Lock()
-		this.MaxDepth = 0
-		this.MinDepth = 0
-		this.Unlock()
+		atomic.StoreInt32(&this.MaxDepth, 0)
+		atomic.StoreInt32(&this.MinDepth, 0)
 		return 0, 0
 	}
 	var (
@@ -202,25 +234,22 @@ func (this *Node) Depth() (int, int) {
 			minDepth = minD
 		}
 	}
-	this.Lock()
-	this.MaxDepth = maxDepth + 1
-	this.MinDepth = minDepth + 1
-	this.Unlock()
+	atomic.StoreInt32(&this.MaxDepth, int32(maxDepth+1))
+	atomic.StoreInt32(&this.MinDepth, int32(minDepth+1))
 	return minDepth + 1, maxDepth + 1
 }
 
 func (this *Node) GetChildren(depth int) ([]*Node, int) {
 	this.RLock()
-	children := this.Children
-	totalChildren := len(children)
+	children := make([]*Node, len(this.Children))
+	copy(children, this.Children)
 	this.RUnlock()
+	totalChildren := len(children)
 	if depth < 0 {
 		depth = -1
 	}
 	if depth == 0 || totalChildren == 0 {
-		this.Lock()
-		this.childrenCountInDepth[depth] = totalChildren
-		this.Unlock()
+		this.childrenInDepth.Set(depth, totalChildren)
 		return nil, totalChildren
 	}
 	var nodes []*Node
@@ -228,37 +257,32 @@ func (this *Node) GetChildren(depth int) ([]*Node, int) {
 		childNodes, childrenCount := child.GetChildren(depth - 1)
 		totalChildren += childrenCount
 		node := child.Copy(childNodes)
-		node.ChildrenCount = childrenCount
+		node.ChildrenCount = int32(childrenCount)
 		nodes = append(nodes, node)
 	}
-	this.Lock()
-	this.childrenCountInDepth[depth] = totalChildren
-	this.ChildrenCount = totalChildren
-	this.Unlock()
+	this.childrenInDepth.Set(depth, totalChildren)
+	atomic.StoreInt32(&this.ChildrenCount, int32(totalChildren))
 	return nodes, totalChildren
 }
 
 func (this *Node) CountChildren(depth int) int {
 	this.RLock()
-	children := this.Children
-	totalChildren := len(children)
+	children := make([]*Node, len(this.Children))
+	copy(children, this.Children)
 	this.RUnlock()
+	totalChildren := len(children)
 	if depth < 0 {
 		depth = -1
 	}
 	if depth == 0 || totalChildren == 0 {
-		this.Lock()
-		this.childrenCountInDepth[depth] = totalChildren
-		this.Unlock()
+		this.childrenInDepth.Set(depth, totalChildren)
 		return totalChildren
 	}
 	for _, child := range children {
 		childCount := child.CountChildren(depth - 1)
 		totalChildren += childCount
 	}
-	this.Lock()
-	this.childrenCountInDepth[depth] = totalChildren
-	this.Unlock()
+	this.childrenInDepth.Set(depth, totalChildren)
 	return totalChildren
 }
 
@@ -272,20 +296,18 @@ func (this *Node) printTreeIter(printTree treeprint.Tree, depth int) {
 	if depth < 0 {
 		depth = -1
 	}
-	this.RLock()
 	key := this.String()
-	var childrenCount int
-	if c, found := this.childrenCountInDepth[depth]; found {
-		childrenCount = c
-	}
+	childrenCount := this.childrenInDepth.Get(depth)
 	meta := fmt.Sprintf("maxD: %d, minD: %d, childCount: %d", this.MaxDepth, this.MinDepth, childrenCount)
-	children := this.Children
-	this.RUnlock()
 	if !this.HasChildren() {
 		printTree.AddMetaNode(meta, key)
 		return
 	}
 	branch := printTree.AddMetaBranch(meta, key)
+	this.RLock()
+	children := make([]*Node, len(this.Children))
+	copy(children, this.Children)
+	this.RUnlock()
 	for _, child := range children {
 		child.printTreeIter(branch, depth-1)
 	}

@@ -43,7 +43,7 @@ func ChildrenHandler(c *gin.Context) {
 				break
 			}
 			n := node.Copy(nil)
-			n.ChildrenCount = n.ChildrenCountInDepth(depth)
+			n.ChildrenCount = int32(n.ChildrenCountInDepth(depth))
 			nodes = append(nodes, n)
 		}
 		c.Nodes = nodes

@@ -32,7 +32,7 @@ func (this *Database) NewTree(name string) *Tree {
 		return tree
 	}
 	this.RUnlock()
-	tree := NewTree()
+	tree := NewTree(name)
 	this.Lock()
 	this.trees[name] = tree
 	this.Unlock()
@@ -41,20 +41,21 @@ func (this *Database) NewTree(name string) *Tree {
 
 func (this *Database) Use(name string) *Tree {
 	this.RLock()
-	defer this.RUnlock()
 	if tree, found := this.trees[name]; found {
+		this.RUnlock()
 		return tree
 	}
+	this.RUnlock()
 	return nil
 }
 
 func (this *Database) List() []string {
 	this.RLock()
-	defer this.RUnlock()
 	var dbs []string
 	for k, _ := range this.trees {
 		dbs = append(dbs, k)
 	}
+	this.RUnlock()
 	return dbs
 }
 
@@ -68,11 +69,16 @@ func (this *Database) Truncate(name string) {
 }
 
 func (this *Database) Flush() {
+	var trees []*Tree
 	this.RLock()
 	dbPath := this.dbPath
+	for _, tree := range this.trees {
+		trees = append(trees, tree)
+	}
+	this.RUnlock()
 	wg := &sync.WaitGroup{}
-	for name, tree := range this.trees {
-		filePath := path.Join(dbPath, fmt.Sprintf("%s%s", name, EXTENSION))
+	for _, tree := range trees {
+		filePath := path.Join(dbPath, fmt.Sprintf("%s%s", tree.Name(), EXTENSION))
 		wg.Add(1)
 		go func(wg *sync.WaitGroup, tree *Tree, filePath string) {
 			log.Info("flushing: %s", filePath)
@@ -83,7 +89,6 @@ func (this *Database) Flush() {
 			wg.Done()
 		}(wg, tree, filePath)
 	}
-	this.RUnlock()
 	wg.Wait()
 }
 
@@ -105,7 +110,7 @@ func (this *Database) Open() error {
 		log.Info("reading db: %s", filename)
 		treeName := strings.TrimSuffix(filename, EXTENSION)
 		filePath := path.Join(dbPath, filename)
-		tree := NewTree()
+		tree := NewTree(treeName)
 		err := tree.Reload(filePath)
 		if err != nil {
 			return err

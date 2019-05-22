@@ -39,6 +39,7 @@
         var chart = new RelationChart('#RelationChart', 1024, 800);
         var api = new Api('http://localhost:8011');
         var ui = new UI(chart, api);
+        var maxTopList = 50;
         api.getDbs().then(function(dbs) {
             var select = document.querySelector('select[name="dblist"]');
             dbs.forEach(function(dbname) {
@@ -49,14 +50,14 @@
             });
             api.useDb(dbs[0]);
             ui.updateNodeView();
-            ui.updateTopChildrenView('.top-list', 10);
+            ui.updateTopChildrenView('.top-list', maxTopList);
         }, function(err) {
             alert(err);
         });
 
         var onDbChange = function(e) {
             ui.changeDb(e);
-            ui.updateTopChildrenView('.top-list', 10);
+            ui.updateTopChildrenView('.top-list', maxTopList);
         };
 
         var onNodeIdInputChange = function(e) {
@@ -66,7 +67,7 @@
         var onDepthInputChange = function(e) {
             var depth = parseInt(e) || 0;
             ui.updateDepth(depth);
-            ui.updateTopChildrenView('.top-list', 10);
+            ui.updateTopChildrenView('.top-list', maxTopList);
         };
         var onViewModeChange = function(mode) {
             ui.updateViewMode(mode);
